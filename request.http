@@ -1,0 +1,70 @@
+###SONO UN UTENTE: voglio sapere tutte le malghe presenti
+GET http://localhost:3000/malgas
+
+###SONO UN UTENTE: voglio sapere i dettagli di una malga specifica
+GET http://localhost:3000/malgas/15
+
+###SONO UN UTENTE: voglio sapere tutte le malghe che producono un certo tipo di formaggio.
+GET http://localhost:3000/malgas?product=burrodimalga
+
+###SONO UN UTENTE: voglio sapere tutte le malghe che sono in Veneto.
+GET http://localhost:3000/malgas?region=veneto
+
+###SONO UN UTENTE: voglio sapere tutte le malghe che vendono Ricotta Fresca.
+GET http://localhost:3000/malgas?product=ricotta%20fresca
+
+###SONO UNA MALGA: creo il mio profilo
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+  "email": "bruttabrutta@malgamia.com",
+  "password":"bruttabrutta",
+  "role": "malga"
+}
+
+###SONO UNA MALGA: creo il mio profilo
+POST http://localhost:3000/malghe
+Content-Type: application/json
+
+{
+    "name": "Malga Nuova Nuovissima",
+    "region": "Nuova Regione",
+    "province": "TN",
+    "city": "Ziano di Fiemme",
+    "high_mt": 1601,
+    "geo": {
+      "lat": 46.2572,
+      "lng": 11.5348
+    },
+    "accessibility": {
+      "with_car": true,
+      "walking_time": 40,
+      "difficulty": "Turistico"
+    },
+    "services": {
+      "food": true,
+      "bed": false,
+      "ebike_recharge": true
+    },
+    "contacts": {
+      "tel": "+393401234567",
+      "web": "https://www.malgasadole.it"
+    },
+    "img_url": "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=500",
+    "schedule": {
+      "start": "Giugno",
+      "end": "Settembre",
+      "aperta_ora": true
+    }
+}
+
+
+### LOGIN DE USUARIO: Iniciando sesión
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+  "email": "bruttabrutta@malgamia.com",
+  "password": "bruttabrutta"
+}
